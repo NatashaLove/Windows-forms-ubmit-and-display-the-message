@@ -32,8 +32,15 @@ namespace nlove_homework02
             FileStream fs2 = new FileStream("something.txt", FileMode.OpenOrCreate, FileAccess.ReadWrite);
             StreamReader sr = new StreamReader(fs2);
             string line2;
-            line2 = sr.ReadLine();
-            richTextBox2.Text = line2;
+
+            while ((line2 = sr.ReadLine()) != null)
+            {
+                richTextBox2.Text += line2 + "\n";
+
+            }
+
+           // line2 = sr.ReadLine();
+            // richTextBox2.Text = line2;
 
             sr.Close();
             fs2.Close();
