@@ -17,9 +17,20 @@ namespace nlove_homework02
             InitializeComponent();
         }
 
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            FileStream fs2 = new FileStream("something.txt", FileMode.OpenOrCreate, FileAccess.ReadWrite);
+            StreamReader sr = new StreamReader(fs2);
+            string line2;
+            line2 = sr.ReadLine();
+            richTextBox1.Text = line2;
+            sr.Close();
+            fs2.Close();
+        }
+
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            FileStream fs = new FileStream("something.txt", FileMode.OpenOrCreate, FileAccess.Write);
+            FileStream fs = new FileStream("something.txt", FileMode.OpenOrCreate, FileAccess.ReadWrite);
             //create streamwr to print into  the file:
             StreamWriter sw = new StreamWriter(fs);
             string line="";
@@ -41,5 +52,7 @@ namespace nlove_homework02
             Form2 form2 = new Form2 ();
             form2.ShowDialog();
         }
+
+        
     }
 }

@@ -34,6 +34,10 @@ namespace nlove_homework02
             string line2;
             line2 = sr.ReadLine();
             richTextBox2.Text = line2;
+
+            sr.Close();
+            fs2.Close();
+
         }
     }
 }
